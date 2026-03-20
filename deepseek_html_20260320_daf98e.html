@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Eternal Weddings | Timeless Wedding & Event Design</title>
+  <!-- Google Fonts & Font Awesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #FFFCF8;
+      color: #2E241F;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .logo, .nav-links a, .testimonial-name, .carousel-title {
+      font-family: 'Playfair Display', serif;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      letter-spacing: -0.5px;
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    h2:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 70px;
+      height: 3px;
+      background: linear-gradient(90deg, #E4B363, #C9A155);
+      border-radius: 3px;
+    }
+    .section-padding {
+      padding: 80px 5%;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    /* Navigation with hide/show on scroll */
+    nav {
+      background: #FFFFFFEE;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      transition: transform 0.3s ease-in-out, box-shadow 0.2s;
+      border-bottom: 1px solid rgba(228, 179, 99, 0.2);
+    }
+    nav.nav-hidden {
+      transform: translateY(-100%);
+    }
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #C9A155;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      color: #E4B363;
+      font-weight: 500;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #3E2C27;
+      transition: 0.3s;
+      font-size: 1rem;
+      letter-spacing: 0.3px;
+    }
+    .nav-links a:hover, .nav-links a.active {
+      color: #C9A155;
+    }
+    .menu-icon {
+      font-size: 1.6rem;
+      cursor: pointer;
+      display: none;
+      color: #C9A155;
+    }
+
+    /* Buttons & Elements */
+    .btn-gold {
+      background: linear-gradient(135deg, #E4B363, #C9A155);
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.25s;
+      box-shadow: 0 5px 12px rgba(201, 161, 85, 0.3);
+      font-family: 'Poppins', sans-serif;
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, #D6A34A, #B8893D);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(201, 161, 85, 0.4);
+    }
+
+    /* Hero Section with Video Background */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      margin-top: 0;
+    }
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+      max-width: 800px;
+      padding: 0 20px;
+      animation: fadeInUp 1s ease-out;
+    }
+    .hero-content h1 {
+      font-size: 3.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .hero-content h1 span {
+      color: #FADB9F;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 1px 5px rgba(0,0,0,0.3);
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* CAROUSEL SECTION - Improved for mobile */
+    .carousel-section {
+      background: white;
+      padding: 80px 5% 70px;
+    }
+    .section-sub {
+      text-align: center;
+      color: #C9A155;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 1200px;
+      margin: 2rem auto 0;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+      background: transparent;
+    }
+    .slides-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    .slide {
+      display: none;
+      animation: fadeEffect 0.5s ease;
+    }
+    .slide.active {
+      display: block;
+    }
+    @keyframes fadeEffect {
+      from {opacity: 0.4;} to {opacity: 1;}
+    }
+    .slide-img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+    .slide-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+      color: white;
+      padding: 2rem 2rem 1.8rem;
+      text-align: left;
+    }
+    .slide-caption h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+    .slide-caption p {
+      font-size: 1rem;
+      max-width: 70%;
+      opacity: 0.9;
+    }
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,240,0.85);
+      border: none;
+      font-size: 1.8rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      color: #C9A155;
+      transition: 0.2s;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .carousel-btn:hover {
+      background: #C9A155;
+      color: white;
+      transform: translateY(-50%) scale(1.05);
+    }
+    .btn-prev { left: 20px; }
+    .btn-next { right: 20px; }
+    .indicators {
+      text-align: center;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+    .dot {
+      width: 12px;
+      height: 12px;
+      background: #E1C7A4;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .dot.active-dot {
+      background: #C9A155;
+      transform: scale(1.2);
+      width: 28px;
+      border-radius: 20px;
+    }
+
+    /* Services Grid (showcasing) */
+    .services-grid {
+      background: #FFFBF5;
+    }
+    .services-card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .service-card {
+      background: white;
+      border-radius: 28px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.04);
+      border: 1px solid #FFEFE0;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 25px 35px -12px rgba(201,161,85,0.25);
+      border-color: #F3DEBA;
+    }
+    .service-icon {
+      font-size: 2.8rem;
+      color: #C9A155;
+      margin-bottom: 1.2rem;
+      transition: transform 0.2s;
+    }
+    .service-card:hover .service-icon {
+      transform: scale(1.1);
+    }
+    .service-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+    }
+    .service-card p {
+      color: #6B4E3A;
+    }
+
+    /* Gallery Showcase */
+    .gallery {
+      background: #FFF8F2;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .gallery-item {
+      border-radius: 28px;
+      overflow: hidden;
+      height: 280px;
+      box-shadow: 0 12px 20px rgba(0,0,0,0.05);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      background: linear-gradient(145deg, #FFF7EF, #FFF3E9);
+    }
+    .testimonial-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .test-card {
+      background: white;
+      border-radius: 32px;
+      padding: 2rem 1.8rem;
+      flex: 1;
+      min-width: 260px;
+      max-width: 360px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.05);
+      transition: all 0.3s;
+      border-bottom: 4px solid #E4B363;
+    }
+    .test-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+    }
+    .test-card i {
+      color: #E4B363;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .test-card p {
+      font-style: italic;
+      margin: 1rem 0;
+      color: #4A3428;
+    }
+    .client {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .client img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .client h4 {
+      font-weight: 600;
+    }
+
+    /* Contact CTA */
+    .contact-cta {
+      background: #2E241F;
+      color: #FFEFE0;
+      text-align: center;
+    }
+    .contact-cta h2 {
+      color: #FFE6C9;
+    }
+    .contact-cta h2:after {
+      background: #E4B363;
+    }
+    .contact-cta p {
+      max-width: 600px;
+      margin: 1rem auto 2rem;
+    }
+    .contact-cta .btn-gold {
+      background: #E4B363;
+      color: #2E241F;
+      box-shadow: none;
+    }
+
+    /* Footer */
+    footer {
+      background: #1F1916;
+      color: #CDB79E;
+      padding: 3rem 5% 2rem;
+      text-align: center;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .social-links a {
+      color: #E4B363;
+      margin: 0 12px;
+      font-size: 1.4rem;
+      transition: 0.2s;
+    }
+    .social-links a:hover {
+      color: white;
+      transform: translateY(-3px);
+      display: inline-block;
+    }
+
+    /* ========== SCROLL ANIMATIONS ========== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1), transform 0.8s cubic-bezier(0.2, 0.9, 0.4, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ========== WHATSAPP WIDGET ========== */
+    .whatsapp-widget {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .whatsapp-button {
+      background-color: #25D366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+    .whatsapp-button i {
+      font-size: 32px;
+      color: white;
+    }
+    .whatsapp-button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+    }
+    .chat-box {
+      position: absolute;
+      bottom: 75px;
+      right: 0;
+      width: 320px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+    .chat-box.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    .chat-header {
+      background: #075E54;
+      color: white;
+      padding: 15px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .chat-header i {
+      font-size: 28px;
+    }
+    .chat-header h4 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    .chat-body {
+      padding: 15px;
+    }
+    .chat-message {
+      background: #f0f0f0;
+      border-radius: 18px;
+      padding: 10px 15px;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      color: #333;
+    }
+    .chat-input-area {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .chat-input-area input {
+      flex: 1;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 25px;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+    }
+    .chat-input-area button {
+      background: #25D366;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .chat-input-area button:hover {
+      background: #128C7E;
+    }
+    .close-chat {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 850px) {
+      .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        background: white;
+        width: 80%;
+        height: calc(100vh - 70px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 3rem;
+        gap: 2rem;
+        transition: 0.3s;
+        box-shadow: 2px 10px 20px rgba(0,0,0,0.1);
+        z-index: 999;
+      }
+      .nav-links.active {
+        left: 0;
+      }
+      .menu-icon {
+        display: block;
+      }
+      .hero-content h1 {
+        font-size: 2.4rem;
+      }
+      .carousel-container {
+        border-radius: 20px;
+      }
+      .slide-img {
+        height: 380px;
+      }
+      .slide-caption h3 {
+        font-size: 1.5rem;
+      }
+      .slide-caption p {
+        font-size: 0.85rem;
+        max-width: 100%;
+      }
+      .carousel-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 1.3rem;
+      }
+      .whatsapp-button {
+        width: 50px;
+        height: 50px;
+      }
+      .whatsapp-button i {
+        font-size: 26px;
+      }
+      .chat-box {
+        width: 290px;
+        right: 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .section-padding {
+        padding: 60px 5%;
+      }
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      .carousel-container {
+        border-radius: 16px;
+        margin-top: 1.5rem;
+      }
+      .slide-img {
+        height: 300px;
+      }
+      .slide-caption {
+        padding: 1.2rem 1rem 1rem;
+      }
+      .slide-caption h3 {
+        font-size: 1.3rem;
+      }
+      .slide-caption p {
+        font-size: 0.75rem;
+      }
+      .carousel-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+      }
+      .btn-prev { left: 10px; }
+      .btn-next { right: 10px; }
+      .indicators {
+        margin-top: 15px;
+        gap: 8px;
+      }
+      .dot {
+        width: 8px;
+        height: 8px;
+      }
+      .dot.active-dot {
+        width: 20px;
+      }
+      .whatsapp-widget {
+        bottom: 15px;
+        right: 15px;
+      }
+      .chat-box {
+        width: 280px;
+        bottom: 65px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <div class="nav-container">
+      <div class="logo">Eternal<span>Weddings</span></div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services-slider">Services</a></li>
+        <li><a href="#showcase-grid">Offerings</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#testimonials">Love Notes</a></li>
+        <li><a href="#contact">Connect</a></li>
+      </ul>
+      <div class="menu-icon" id="menuIcon">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section with Video Background -->
+    <section id="home" class="hero">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="./video1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1>Curating <span>Timeless Love Stories</span><br> Since 2010</h1>
+        <p>Eternal Weddings — Where elegance meets perfection. From intimate ceremonies to grand celebrations, we craft unforgettable wedding experiences.</p>
+        <button class="btn-gold" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Start Your Journey →</button>
+      </div>
+    </section>
+
+    <!-- AUTOMATIC CAROUSEL featuring services -->
+    <section id="services-slider" class="carousel-section">
+      <div class="container">
+        <div class="section-sub">Signature Experiences</div>
+        <h2 style="text-align:center;">Our Wedding Services</h2>
+        <div class="carousel-container">
+          <div class="slides-wrapper" id="carouselSlidesWrapper">
+            <!-- slides dynamically injected by JS -->
+          </div>
+          <button class="carousel-btn btn-prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+          <button class="carousel-btn btn-next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+          <div class="indicators" id="carouselDots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Showcasing Divs: Service Cards (detailed) -->
+    <section id="showcase-grid" class="services-grid section-padding">
+      <div class="container">
+        <h2 style="text-align:center;">Endless Elegance, One Touch</h2>
+        <div class="services-card-container">
+          <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-church"></i></div><h3>Hall & Venue Design</h3><p>Bespoke layouts, floral walls, and dreamy lighting that transforms any venue.</p></div>
+          <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-stage"></i></div><h3>Stage Designing</h3><p>Custom mandaps, modern stages, and thematic backdrops that steal hearts.</p></div>
+          <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-utensils"></i></div><h3>Catering & Menu Curation</h3><p>Exquisite multi-cuisine feasts, live counters, and personalized dessert bars.</p></div>
+          <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-music"></i></div><h3>Music & Entertainment</h3><p>Live bands, DJs, sangeet choreography & celebrity artists for unforgettable nights.</p></div>
+          <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-camera-retro"></i></div><h3>Photography & Cinematography</h3><p>Award-winning storytellers capturing every tear, laugh & magical moment.</p></div>
+          <div class="service-card fade-up"><div class="service-icon"><i class="fas fa-ring"></i></div><h3>Wedding Coordination</h3><p>Full-service planning, timelines, vendor management – stress-free wedding.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section (showcasing visuals) -->
+    <section id="gallery" class="gallery section-padding">
+      <div class="container">
+        <h2 style="text-align:center;">Moments That Last Forever</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item fade-up"><img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=500&auto=format" alt="wedding floral decoration"></div>
+          <div class="gallery-item fade-up"><img src="https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=500&auto=format" alt="stage design"></div>
+          <div class="gallery-item fade-up"><img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=500&auto=format" alt="wedding hall"></div>
+          <div class="gallery-item fade-up"><img src="https://images.unsplash.com/photo-1555244162-803834f70033?w=500&auto=format" alt="catering setup"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section-padding">
+      <div class="container">
+        <h2 style="text-align:center;">What Our Couples Say</h2>
+        <div class="testimonial-cards">
+          <div class="test-card fade-up"><i class="fas fa-quote-left"></i><p>"Eternal Weddings gave us the wedding of our dreams! The stage design was a fairy tale and the team was so professional. Highly recommend!"</p><div class="client"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="client"><div><h4>Priya & Ankit</h4><span>Wedding, March 2024</span></div></div></div>
+          <div class="test-card fade-up"><i class="fas fa-quote-left"></i><p>"Absolutely flawless coordination. From catering to music, everything exceeded expectations. Our guests are still raving!"</p><div class="client"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="client"><div><h4>Neha & Rahul</h4><span>Destination Wedding</span></div></div></div>
+          <div class="test-card fade-up"><i class="fas fa-quote-left"></i><p>"The floral arrangements and hall designing were breathtaking. They truly listened to our vision. Eternal Weddings is pure magic."</p><div class="client"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="client"><div><h4>Ishita & Kunal</h4><span>June 2024</span></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / CTA -->
+    <section id="contact" class="contact-cta section-padding">
+      <div class="container">
+        <h2>Let's Create Magic Together</h2>
+        <p>Tell us your dream, and we'll craft an experience that echoes your love story.</p>
+        <button class="btn-gold" onclick="alert('✨ Thank you for reaching Eternal Weddings! Our team will get back to you within 24 hours.')">Request a Consultation</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="logo" style="font-size:1.6rem; color:#E4B363;">Eternal<span style="color:#CDB79E;">Weddings</span></div>
+      <p>Where love meets artistry — Creating timeless weddings across the globe.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-pinterest"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+      <p style="font-size:0.85rem;">© 2025 Eternal Weddings — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Widget -->
+  <div class="whatsapp-widget">
+    <div class="whatsapp-button" id="whatsappButton">
+      <i class="fab fa-whatsapp"></i>
+    </div>
+    <div class="chat-box" id="chatBox">
+      <div class="chat-header">
+        <i class="fab fa-whatsapp"></i>
+        <h4>Chat with us</h4>
+        <button class="close-chat" id="closeChatBtn"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="chat-body">
+        <div class="chat-message">
+          👋 Hi there! Have a question about our wedding services? Send us a message and we'll get back to you shortly.
+        </div>
+        <div class="chat-input-area">
+          <input type="text" id="chatMessageInput" placeholder="Type your message...">
+          <button id="sendMessageBtn"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Carousel Data: services showcasing
+    const slidesData = [
+      { img: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=1200&auto=format", title: "Hall & Venue Designing", desc: "Luxury ballrooms, mandaps, and ambient lighting tailored to your fairy tale." },
+      { img: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=1200&auto=format", title: "Stage & Mandap Design", desc: "Artistic floral installations, modern geometric stages, royal grandeur." },
+      { img: "https://images.unsplash.com/photo-1555244162-803834f70033?w=1200&auto=format", title: "Catering Services", desc: "Gourmet dining, live food stations, and curated wedding cakes." },
+      { img: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=1200&auto=format", title: "Music Shows & Entertainment", desc: "Live bands, DJs, cultural performances & celebrity artists." },
+      { img: "https://images.unsplash.com/photo-1519741497674-611481863552?w=1200&auto=format", title: "Floral & Décor Curation", desc: "Seasonal blooms, exotic foliage, and cohesive color palettes (gold, peach, blush)." },
+      { img: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=1200&auto=format", title: "Photography & Cinematography", desc: "Capturing every emotion with cinematic storytelling." }
+    ];
+
+    let currentIndex = 0;
+    let autoInterval;
+    const slidesWrapper = document.getElementById('carouselSlidesWrapper');
+    const dotsContainer = document.getElementById('carouselDots');
+    let totalSlides = slidesData.length;
+
+    function renderSlidesAndDots() {
+      slidesWrapper.innerHTML = '';
+      slidesData.forEach((slide, idx) => {
+        const slideDiv = document.createElement('div');
+        slideDiv.classList.add('slide');
+        if (idx === currentIndex) slideDiv.classList.add('active');
+        slideDiv.innerHTML = `
+          <img class="slide-img" src="${slide.img}" alt="${slide.title}">
+          <div class="slide-caption">
+            <h3>${slide.title}</h3>
+            <p>${slide.desc}</p>
+          </div>
+        `;
+        slidesWrapper.appendChild(slideDiv);
+      });
+
+      dotsContainer.innerHTML = '';
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (i === currentIndex) dot.classList.add('active-dot');
+        dot.addEventListener('click', () => {
+          goToSlide(i);
+          resetInterval();
+        });
+        dotsContainer.appendChild(dot);
+      }
+    }
+
+    function updateActiveSlide() {
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach((slide, idx) => {
+        if (idx === currentIndex) slide.classList.add('active');
+        else slide.classList.remove('active');
+      });
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach((dot, idx) => {
+        if (idx === currentIndex) dot.classList.add('active-dot');
+        else dot.classList.remove('active-dot');
+      });
+    }
+
+    function goToSlide(index) {
+      if (index < 0) index = totalSlides - 1;
+      if (index >= totalSlides) index = 0;
+      currentIndex = index;
+      updateActiveSlide();
+    }
+
+    function nextSlide() { goToSlide(currentIndex + 1); resetInterval(); }
+    function prevSlide() { goToSlide(currentIndex - 1); resetInterval(); }
+
+    function startAutoCarousel() {
+      autoInterval = setInterval(() => {
+        nextSlide();
+      }, 4500);
+    }
+    function resetInterval() {
+      clearInterval(autoInterval);
+      startAutoCarousel();
+    }
+    function pauseCarousel() {
+      clearInterval(autoInterval);
+    }
+    function resumeCarousel() {
+      startAutoCarousel();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderSlidesAndDots();
+      startAutoCarousel();
+
+      const prevBtn = document.getElementById('prevSlide');
+      const nextBtn = document.getElementById('nextSlide');
+      prevBtn.addEventListener('click', prevSlide);
+      nextBtn.addEventListener('click', nextSlide);
+
+      const carouselContainer = document.querySelector('.carousel-container');
+      carouselContainer.addEventListener('mouseenter', pauseCarousel);
+      carouselContainer.addEventListener('mouseleave', resumeCarousel);
+    });
+
+    // Mobile Menu Toggle
+    const menuIcon = document.getElementById('menuIcon');
+    const navLinks = document.getElementById('navLinks');
+    menuIcon.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
+    });
+
+    // Active link highlight on scroll
+    const sections = document.querySelectorAll('section, .hero');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 100;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Hide/Show navbar on scroll
+    let lastScrollTop = 0;
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop && scrollTop > 80) {
+        navbar.classList.add('nav-hidden');
+      } else {
+        navbar.classList.remove('nav-hidden');
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+
+    // Scroll reveal animations
+    const fadeElements = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2, rootMargin: "0px 0px -20px 0px" });
+    fadeElements.forEach(el => observer.observe(el));
+
+    // ========== WHATSAPP WIDGET LOGIC ==========
+    // Replace with your actual WhatsApp number (including country code, no '+' or spaces)
+    const WHATSAPP_NUMBER = "1234567890"; // <-- CHANGE THIS TO YOUR NUMBER
+
+    const whatsappButton = document.getElementById('whatsappButton');
+    const chatBox = document.getElementById('chatBox');
+    const closeChatBtn = document.getElementById('closeChatBtn');
+    const sendMessageBtn = document.getElementById('sendMessageBtn');
+    const chatMessageInput = document.getElementById('chatMessageInput');
+
+    function toggleChat() {
+      chatBox.classList.toggle('open');
+    }
+
+    function openChat() {
+      chatBox.classList.add('open');
+    }
+
+    function closeChat() {
+      chatBox.classList.remove('open');
+    }
+
+    function sendWhatsAppMessage() {
+      let message = chatMessageInput.value.trim();
+      if (message === "") {
+        message = "Hi, I'm interested in your wedding services!";
+      }
+      // Encode message for URL
+      const encodedMessage = encodeURIComponent(message);
+      const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
+      window.open(whatsappUrl, '_blank');
+      closeChat();
+      chatMessageInput.value = "";
+    }
+
+    whatsappButton.addEventListener('click', openChat);
+    closeChatBtn.addEventListener('click', closeChat);
+    sendMessageBtn.addEventListener('click', sendWhatsAppMessage);
+    chatMessageInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendWhatsAppMessage();
+    });
+  </script>
+</body>
+</html>
